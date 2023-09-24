@@ -1,0 +1,91 @@
+/* Reset some default styles for a cleaner look */
+body, h1, h2, ul, li {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    overflow-x: hidden; /* Hide horizontal scrollbar when sidebar is open */
+}
+
+/* Define styles for the menu button */
+.menu-button {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    z-index: 999;
+}
+
+.menu-bar {
+    width: 30px;
+    height: 3px;
+    background-color: #333;
+    margin: 6px 0;
+    transition: 0.4s;
+}
+
+/* Define styles for the sidebar */
+.sidebar {
+    background-color: #333;
+    color: #fff;
+    width: 0;
+    height: 100%;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    right: 0;
+    transition: 0.3s;
+}
+
+.sidebar h2 {
+    padding: 20px;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    padding: 10px;
+    text-align: center;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: #fff;
+}
+
+/* Define styles for the content area */
+.content {
+    margin-right: 0;
+    padding: 20px;
+    transition: margin-right 0.3s;
+}
+
+/* Style the header */
+header {
+    background-color: #007BFF;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Style the main content sections */
+main {
+    padding: 20px;
+}
+
+section {
+    margin-bottom: 20px;
+}
+
+/* Style the footer */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+}
