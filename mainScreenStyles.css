@@ -18,6 +18,32 @@ body {
     z-index: 999;
 }
 
+/* Styling search area */
+.searchbar {
+    top: 0;
+    right: 20;
+}
+
+.searchbar {
+    display: flex;
+    align-items: center;
+}
+
+input[type="text"] {
+    padding: 5px;
+    border-radius: 5px;
+    margin-right: 5px;
+}
+
+button[type="submit-button"] {
+    background-color: #444;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
 .menu-bar {
     width: 30px;
     height: 3px;
