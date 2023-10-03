@@ -24,10 +24,12 @@ document.addEventListener("DOMContentLoaded", function() {
 
     addStockButton.addEventListener("click", function() {
         const newStockText = stockInput.value.trim();
-        if (newStockText !== "") {
+        if (newStockText !== "" && !stocks.includes(newStockText)) {
             const newStock = document.createElement("li");
             newStock.textContent = newStockText;
             stockList.appendChild(newStock);
+            stocks.push(newStockText);
+            createStockCircles();
             stockInput.value = ""; //Clear input field
         }
     });
@@ -38,3 +40,37 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 });
+
+// script.js
+const stockContainer = document.getElementById('stock-container');
+const stocks = ['AAPL', 'GOOGL', 'AMZN', 'TSLA', 'MSFT']; // Your list of stocks
+
+function createStockCircles() {
+    stockContainer.innerHTML = ''; // Clear existing circles
+
+    stocks.forEach(stock => {
+        const circle = document.createElement('div');
+        circle.classList.add('stock-circle');
+        circle.textContent = stock;
+        stockContainer.appendChild(circle);
+    });
+}
+
+function createStockCircles() {
+    stockContainer.innerHTML = ''; // Clear existing circles
+
+    const circleSize = 500 * (0.95**stocks.length); // Calculate circle size based on the number of stocks
+
+    stocks.forEach(stock => {
+        const circle = document.createElement('div');
+        circle.classList.add('stock-circle');
+        circle.textContent = stock;
+        circle.style.width = `${circleSize}px`; // Apply dynamic size
+        circle.style.height = `${circleSize}px`;
+        stockContainer.appendChild(circle);
+    });
+}
+
+createStockCircles(); // Initial creation of circles
+
+// You can add more stocks to the array and call createStockCircles() again to update the display.
