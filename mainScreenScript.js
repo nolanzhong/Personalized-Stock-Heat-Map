@@ -17,4 +17,24 @@ document.addEventListener("DOMContentLoaded", function() {
             });
         }
     });
+
+    const stockInput = document.getElementById("searchStock");
+    const addStockButton = document.getElementById("submit-button");
+    const stockList = document.getElementById("stockList");
+
+    addStockButton.addEventListener("click", function() {
+        const newStockText = stockInput.value.trim();
+        if (newStockText !== "") {
+            const newStock = document.createElement("li");
+            newStock.textContent = newStockText;
+            stockList.appendChild(newStock);
+            stockInput.value = ""; //Clear input field
+        }
+    });
+
+    stockInput.addEventListener("keyup", function(event) {
+        if (event.key === "Enter") {
+            addStockButton.click(); //Trigger add stock on clicking enter
+        }
+    });
 });
