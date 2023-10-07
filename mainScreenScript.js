@@ -45,6 +45,14 @@ document.addEventListener("DOMContentLoaded", function() {
     
     console.log(stocks);
     getStockPercentages(stocks); // Initial creation of circles
+
+    // Set up a timer to call getStockPercentages every 30 seconds
+    const interval = 30 * 1000; // 30 seconds in milliseconds
+
+    const stockRefreshTimer = setInterval(function() {
+      getStockPercentages(stocks);
+    }, interval);
+
     
 });
 
