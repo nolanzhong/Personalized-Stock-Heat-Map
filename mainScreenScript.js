@@ -31,6 +31,8 @@ document.addEventListener("DOMContentLoaded", function() {
             stocks.push(newStockText);
             getStockPercentages(stocks);
             stockInput.value = ""; //Clear input field
+            console.log(stocks);
+            console.log(stockPercentages);
         }
     });
 
@@ -49,7 +51,7 @@ document.addEventListener("DOMContentLoaded", function() {
 // script.js
 const stockContainer = document.getElementById('stock-container');
 const stocks = ['AAPL', 'GOOGL', 'AMZN', 'TSLA', 'MSFT']; // Your list of stocks
-const stockPercentages = []
+var stockPercentages = []
 
 function createStockCircles() {
     stockContainer.innerHTML = ''; // Clear existing circles
@@ -92,15 +94,16 @@ function fetchStockData(symbol) {
       });
   }
   
-  function getStockPercentages(lstStocks) {
-    const promises = lstStocks.map(stock => fetchStockData(stock));
-  
-    Promise.all(promises)
-      .then(results => {
-        stockPercentages.push(...results); // Push the results into stockPercentages
-        createStockCircles();
-      })
-      .catch(error => {
-        console.error('Error fetching stock data:', error);
-      });
-  }
+function getStockPercentages(lstStocks) {
+  stockPercentages = []
+  const promises = lstStocks.map(stock => fetchStockData(stock));
+
+  Promise.all(promises)
+    .then(results => {
+      stockPercentages.push(...results); // Push the results into stockPercentages
+      createStockCircles();
+    })
+    .catch(error => {
+      console.error('Error fetching stock data:', error);
+    });
+}
