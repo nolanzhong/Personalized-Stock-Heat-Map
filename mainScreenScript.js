@@ -69,12 +69,15 @@ function createStockCircles() {
     for (let i = 0; i < stocks.length; i++) {
         const stock = stocks[i];
         const percentage = stockPercentages[i]; // Get the corresponding percentage
+
+        const color = getColorForPercentage(percentage)
     
         const circle = document.createElement('div');
         circle.classList.add('stock-circle');
         circle.textContent = `${stock} (${percentage}%)`; // Include the percentage in the text content
         circle.style.width = `${circleSize}px`; // Apply dynamic size
         circle.style.height = `${circleSize}px`;
+        circle.style.backgroundColor = color; // Apply the calculated color to the circle's background
         stockContainer.appendChild(circle);
       }
 }
@@ -114,4 +117,21 @@ function getStockPercentages(lstStocks) {
     .catch(error => {
       console.error('Error fetching stock data:', error);
     });
+}
+
+function getColorForPercentage(percentage) {
+  // Define base color as red
+  var color = 'red';
+
+  // Calculate the lightness value based on the percentage
+  const lightness = Math.min(Math.abs(percentage) * 10, 70); // Adjust the multiplier (10) for desired shading intensity
+
+  // Adjust the color based on whether the percentage is positive or negative
+  if (percentage >= 0) {
+    color = `hsl(120, 50%, ${60 - lightness}%)`; // Greenish hue
+  } else {
+    color = `hsl(0, 150%, ${90  - lightness}%)`; // Darker red hue
+  }
+
+  return color;
 }
