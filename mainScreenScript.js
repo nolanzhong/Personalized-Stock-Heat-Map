@@ -46,14 +46,6 @@ document.addEventListener("DOMContentLoaded", function() {
     console.log(stocks);
     getStockPercentages(stocks); // Initial creation of circles
 
-    // Set up a timer to call getStockPercentages every 30 seconds
-    const interval = 30 * 1000; // 30 seconds in milliseconds
-
-    const stockRefreshTimer = setInterval(function() {
-      getStockPercentages(stocks);
-    }, interval);
-
-    
 });
 
 // script.js
@@ -128,10 +120,37 @@ function getColorForPercentage(percentage) {
 
   // Adjust the color based on whether the percentage is positive or negative
   if (percentage >= 0) {
-    color = `hsl(120, 50%, ${60 - lightness}%)`; // Greenish hue
+    color = `hsl(120, 50%, ${75 - lightness}%)`; // Greenish hue
   } else {
     color = `hsl(0, 150%, ${90  - lightness}%)`; // Darker red hue
   }
 
   return color;
 }
+
+// Set up a timer to call getStockPercentages every 30 seconds
+const interval = 30 * 1000; // 30 seconds in milliseconds
+
+function updateCountdownTimer() {
+    const countdownElement = document.getElementById("countdown");
+
+    let remainingTime = interval / 1000; // Convert to seconds
+    countdownElement.textContent = remainingTime;
+
+    const countdownInterval = setInterval(function() {
+        remainingTime--;
+
+        if (remainingTime <= 0) {
+            clearInterval(countdownInterval);
+        }
+
+        countdownElement.textContent = remainingTime;
+    }, 1000);
+}
+
+updateCountdownTimer(); // Initial update of the countdown timer
+
+const stockRefreshTimer = setInterval(function() {
+    getStockPercentages(stocks);
+    updateCountdownTimer(); // Update the countdown timer after each tick
+}, interval);
