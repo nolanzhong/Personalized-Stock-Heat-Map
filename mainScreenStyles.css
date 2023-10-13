@@ -12,20 +12,30 @@ body {
 /* Define styles for the menu button */
 .menu-button {
     position: fixed;
-    top: 20px;
-    right: 20px;
+    top: 8px;
+    right: 10px;
     cursor: pointer;
     z-index: 999;
 }
 
+.logo {
+    position: absolute;
+    top: 0; /* Adjust as needed */
+    left: 0; /* Adjust as needed */
+    z-index: 1; /* Ensure it's above other elements */
+    height: 38px;
+    width: auto;
+}
+
+
 /* Styling search area */
-.searchbar {
+#topsearchbar {
     position: relative;
     display: flex;
     align-items: center;
     justify-content: flex-end;
     margin-top: 10px;
-    margin-right: 60px;
+    margin-right: 60px; /* Change to 260 on menu button click */
 }
 
 input[type="text"] {
