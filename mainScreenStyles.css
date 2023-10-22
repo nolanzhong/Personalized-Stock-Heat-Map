@@ -57,10 +57,12 @@ button[type="submit-button"] {
 
 button[type="submit-button"]:hover {
     background-color: #beef00; /* Change the background color on hover */
+    color: black;
 }
 
 input[type="text"]:focus + button[type="submit-button"] {
     background-color: #beef00; /* Change the background color when the input is focused */
+    color: black;
 }
 
 .menu-bar {
