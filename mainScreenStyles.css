@@ -52,6 +52,15 @@ button[type="submit-button"] {
     border-radius: 5px;
     padding: 5px 10px;
     cursor: pointer;
+    transition: background-color 0.4s; /* Add a smooth transition effect */
+}
+
+button[type="submit-button"]:hover {
+    background-color: #beef00; /* Change the background color on hover */
+}
+
+input[type="text"]:focus + button[type="submit-button"] {
+    background-color: #beef00; /* Change the background color when the input is focused */
 }
 
 .menu-bar {
