@@ -32,10 +32,21 @@ document.addEventListener("DOMContentLoaded", function() {
             newStock.textContent = newStockText;
             stockList.appendChild(newStock);
             stocks.push(newStockText);
-            getStockPercentages(stocks);
-            stockInput.value = ""; //Clear input field
-            console.log(stocks);
-            console.log(stockPercentages);
+            fetchStockData(newStockText)
+            .then(stockData => {
+                stockPercentages.push(stockData);
+
+                // Call createStockCircles here
+                createStockCircles();
+
+                stockInput.value = ""; // Clear input field
+                console.log(stocks);
+                console.log(stockPercentages);
+            })
+            .catch(error => {
+                // Handle any errors from the API call
+                console.error("Error fetching stock data:", error);
+            });
         }
     });
 
