@@ -161,3 +161,7 @@ footer {
     margin: 10px;
     font-size: 18px;
 }
+
+.stock-info {
+    text-align: center; /* Center the text horizontally within the stock-info container */
+}

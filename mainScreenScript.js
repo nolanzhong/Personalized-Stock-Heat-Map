@@ -55,7 +55,6 @@ document.addEventListener("DOMContentLoaded", function() {
             addStockButton.click(); //Trigger add stock on clicking enter
         }
     });
-
     
     console.log(stocks);
     getStockPercentages(stocks); // Initial creation of circles
@@ -80,10 +79,29 @@ function createStockCircles() {
     
         const circle = document.createElement('div');
         circle.classList.add('stock-circle');
-        circle.textContent = `${stock} (${percentage}%)`; // Include the percentage in the text content
         circle.style.width = `${circleSize}px`; // Apply dynamic size
         circle.style.height = `${circleSize}px`;
         circle.style.backgroundColor = color; // Apply the calculated color to the circle's background
+
+        // Create stock information div
+        const stockInfo = document.createElement("div");
+        stockInfo.className = "stock-info";
+
+        // Create and set stock percentage
+        const stockNamePercent = document.createElement("div");
+        stockNamePercent.className = "stock-name-percentage";
+        stockNamePercent.textContent = `${stock} (${percentage}%)`;
+        stockInfo.appendChild(stockNamePercent);
+
+        // Adding delete button
+        const deleteStockButton = document.createElement("button");
+        deleteStockButton.className = "delete-stock-button";
+        deleteStockButton.textContent = "X";
+        //deleteStockButton.style.display = "none"; // Hide the button by default only reveal when hovered
+        stockInfo.appendChild(deleteStockButton);
+
+        circle.appendChild(stockInfo);
+
         stockContainer.appendChild(circle);
       }
 }
