@@ -146,14 +146,14 @@ function getStockPercentages(lstStocks) {
 function getColorForPercentage(percentage) {
   // Define base color as red
   var color = 'red';
-
-  // Calculate the lightness value based on the percentage
-  const lightness = Math.min(Math.abs(percentage) * 10, 70); // Adjust the multiplier (10) for desired shading intensity
+  
 
   // Adjust the color based on whether the percentage is positive or negative
   if (percentage >= 0) {
+    const lightness = Math.min(Math.abs(percentage) * 10, 50); // Adjust the multiplier (10) for desired shading intensity
     color = `hsl(120, 50%, ${75 - lightness}%)`; // Greenish hue
   } else {
+    const lightness = Math.min(Math.abs(percentage) * 10, 50); // Adjust the multiplier (10) for desired shading intensity
     color = `hsl(0, 150%, ${90  - lightness}%)`; // Darker red hue
   }
 
