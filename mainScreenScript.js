@@ -55,6 +55,28 @@ document.addEventListener("DOMContentLoaded", function() {
             addStockButton.click(); //Trigger add stock on clicking enter
         }
     });
+
+    // Delete stock button event listener
+    document.addEventListener('click', function(event) {
+      // Check if the clicked element has the class 'delete-stock-button'
+      if (event.target.classList.contains('delete-stock-button')) {
+        // Access the stock name (AAPL) from the parent element
+        var stockInfo = event.target.closest('.stock-info');
+        var stockName = event.target.closest('.stock-info').querySelector('.stock-name-percentage').textContent.split(" ")[0];
+        var stockIdx = stocks.indexOf(stockName);
+        
+        // Display the stock name in the console (you can do any other action here)
+        console.log(stockName, stockIdx);
+
+        // Use splice to remove the item at the specified index
+        stocks.splice(stockIdx, 1);
+        stockPercentages.splice(stockIdx, 1);
+        console.log(stocks, stockPercentages)
+
+        // Remove the entire stock-circle
+        stockInfo.closest('.stock-circle').remove();
+      }
+    });
     
     console.log(stocks);
     getStockPercentages(stocks); // Initial creation of circles
