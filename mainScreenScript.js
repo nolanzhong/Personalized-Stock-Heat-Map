@@ -62,6 +62,7 @@ document.addEventListener("DOMContentLoaded", function() {
       if (event.target.classList.contains('delete-stock-button')) {
         // Access the stock name (AAPL) from the parent element
         var stockInfo = event.target.closest('.stock-info');
+        var stockCircle = stockInfo.closest('.stock-circle');
         var stockName = event.target.closest('.stock-info').querySelector('.stock-name-percentage').textContent.split(" ")[0];
         var stockIdx = stocks.indexOf(stockName);
         
@@ -73,8 +74,13 @@ document.addEventListener("DOMContentLoaded", function() {
         stockPercentages.splice(stockIdx, 1);
         console.log(stocks, stockPercentages)
 
-        // Remove the entire stock-circle
-        stockInfo.closest('.stock-circle').remove();
+        // Add a class to initiate the fade-out animation
+        stockCircle.classList.add('fade-out');
+
+        // Remove the stock-circle after the animation ends
+        stockCircle.addEventListener('transitionend', function() {
+          stockCircle.remove();
+        });
       }
     });
     

@@ -160,8 +160,30 @@ footer {
     align-items: center;
     margin: 10px;
     font-size: 18px;
+    transition: opacity 0.6s ease-in-out;
+}
+
+.stock-circle.fade-out {
+    opacity: 0;
 }
 
 .stock-info {
     text-align: center; /* Center the text horizontally within the stock-info container */
 }
+
+.delete-stock-button {
+    background-color: transparent;
+    color: #1565c0; /* Normal Blue text color */
+    border: none;
+    padding: 12px 12px; /* Adjusted padding for a larger button */
+    cursor: pointer;
+    border-radius: 5px; /* Optional: Adds rounded corners */
+    transition: color 0.3s ease; /* Smooth transition for hover effect */
+    font-weight: bold; /* Make the text bold */
+    font-size: 16px; /* Set the font size */
+  }
+
+  .delete-stock-button:hover {
+    color: #2196f3; /* Light Blue for hover effect */
+    background-color: #e3f2fd; /* Light background color on hover */
+  }
