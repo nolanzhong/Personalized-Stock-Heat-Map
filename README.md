@@ -43,23 +43,6 @@ The Customizable Stock Heat Maps project is a dynamic and user-friendly web appl
 6. **Machine Learning Predictions:**
    - Develop machine learning models to predict future stock movements based on historical data, providing users with forecasting insights.
 
-## Technology Stack
-
-- **Frontend:** React.js for a responsive and dynamic user interface.
-- **Backend:** Node.js for server-side development.
-- **Data Visualization:** D3.js for creating interactive and customizable heat maps.
-- **Authentication:** Implement OAuth or JWT for secure user authentication.
-
-## How to Use
-
-1. Clone the repository: `git clone https://github.com/your-username/customizable-stock-heat-maps.git`
-2. Install dependencies: `npm install`
-3. Start the development server: `npm start`
-
 ## Contribution Guidelines
 
 Contributions are welcome! If you have ideas for improvements or new features, please open an issue or submit a pull request.
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).
