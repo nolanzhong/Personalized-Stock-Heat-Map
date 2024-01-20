@@ -155,7 +155,7 @@ function fetchStockData(symbol) {
         console.error(`Fetch error for ${symbol}:`, error);
         return null;
       });
-  }
+}
   
 function getStockPercentages(lstStocks) {
   stockPercentages = []
@@ -187,6 +187,43 @@ function getColorForPercentage(percentage) {
 
   return color;
 }
+
+// Checking Market Status
+function checkMarketStatus() {
+  const apiUrl = `https://finnhub.io/api/v1/stock/market-status?exchange=US&token=${apiKey}`;
+
+  return fetch(apiUrl)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
+    .then(data => {
+      const openStatus = data.isOpen;
+      return openStatus;
+    })
+    .catch(error => {
+      console.error(`Fetch error for market status`, error);
+      return null;
+    });
+}
+
+const openUIBlock = document.getElementById("market-open");
+const openText = document.getElementById("open-closed");
+// Using the Promise chaining approach
+checkMarketStatus()
+  .then(marketStatus => {
+    console.log(marketStatus);
+    if (marketStatus === false) {
+      openUIBlock.style.backgroundColor = "#ff4d4d";
+      openText.textContent = "Closed"
+    }
+  })
+  .catch(error => {
+    // Handle errors if needed
+    console.error('Error:', error);
+  });
 
 // Set up a timer to call getStockPercentages every 30 seconds
 const interval = 30 * 1000; // 30 seconds in milliseconds
