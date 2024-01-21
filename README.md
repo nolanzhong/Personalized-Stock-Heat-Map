@@ -1,8 +1,7 @@
 # Personalized-Stock-Heat-Map
 
 ## Overview
-
-The Customizable Stock Heat Maps project is a dynamic and user-friendly web application that empowers users to create personalized stock heat maps. It provides an intuitive interface for selecting stocks, monitoring market status, and visualizing portfolio performance through a customizable color scale and size representation.
+As passionate stock investors, we found existing heatmaps lacked customization to analyze our specific holdings over time. This inspired us to develop the Customizable Stock Heat Maps web app - a dynamic tool giving users control over building heatmap views of their portfolios. Through an intuitive interface selecting stocks and customizable visualizations with real-time market data, the app provides valuable insights into movement and health of user-defined equities across adjustable periods. Our goals are to deliver tailored market intelligence through engaging features to support making informed investment decisions, while gaining experience developing a full-stack personal finance tool.
 
 ## Features
 

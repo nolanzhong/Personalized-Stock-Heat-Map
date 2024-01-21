@@ -210,21 +210,34 @@ function checkMarketStatus() {
     });
 }
 
-const openUIBlock = document.getElementById("market-open");
-const openText = document.getElementById("open-closed");
-// Using the Promise chaining approach
-checkMarketStatus()
-  .then(marketStatus => {
-    console.log(marketStatus);
-    if (marketStatus === false) {
-      openUIBlock.style.backgroundColor = "#ff4d4d";
-      openText.textContent = "Closed"
-    }
-  })
-  .catch(error => {
-    // Handle errors if needed
-    console.error('Error:', error);
-  });
+function updateMarketUI(marketStatus) {
+  const openUIBlock = document.getElementById("market-open");
+  const openText = document.getElementById("open-closed");
+
+  console.log(marketStatus);
+
+  if (marketStatus === false) {
+    openUIBlock.style.backgroundColor = "#ff4d4d";
+    openText.textContent = "Closed";
+  } else {
+    openUIBlock.style.backgroundColor = "#3498db"; // Change to desired color for open status
+    openText.textContent = "Open";
+  }
+}
+
+function checkAndUpdateMarketStatus() {
+  checkMarketStatus()
+    .then(updateMarketUI)
+    .catch(error => {
+      console.error('Error:', error);
+    });
+}
+
+// Initial call
+checkAndUpdateMarketStatus();
+
+// Set interval to call API every minute (60,000 milliseconds)
+setInterval(checkAndUpdateMarketStatus, 60000);
 
 // Set up a timer to call getStockPercentages every 30 seconds
 const interval = 30 * 1000; // 30 seconds in milliseconds

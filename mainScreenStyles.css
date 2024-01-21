@@ -1,12 +1,17 @@
 /* Reset some default styles for a cleaner look */
-body, h1, h2, ul, li {
+body,
+h1,
+h2,
+ul,
+li {
     margin: 0;
     padding: 0;
 }
 
 body {
     font-family: Arial, sans-serif;
-    overflow-x: hidden; /* Hide horizontal scrollbar when sidebar is open */
+    overflow-x: hidden;
+    /* Hide horizontal scrollbar when sidebar is open */
 }
 
 /* Define styles for the menu button */
@@ -20,9 +25,12 @@ body {
 
 .logo {
     position: absolute;
-    top: 0; /* Adjust as needed */
-    left: 0; /* Adjust as needed */
-    z-index: 1; /* Ensure it's above other elements */
+    top: 0;
+    /* Adjust as needed */
+    left: 0;
+    /* Adjust as needed */
+    z-index: 1;
+    /* Ensure it's above other elements */
     height: 38px;
     width: auto;
 }
@@ -35,17 +43,23 @@ body {
     align-items: center;
     justify-content: flex-end;
     margin-top: 10px;
-    margin-right: 60px; /* Change to 260 on menu button click */
+    margin-right: 60px;
+    /* Change to 260 on menu button click */
 }
 
 #market-open {
     display: inline-block;
     padding: 5px;
-    background-color: #3498db; /* Set a blue background color */
-    color: #ffffff; /* Set white text color */
-    font-family: 'Helvetica', sans-serif; /* Use a specific font-family */
-    font-size: 16px; /* Set the font size */
-    border: 1px solid #2980b9; /* Border color */
+    background-color: #3498db;
+    /* Set a blue background color */
+    color: #ffffff;
+    /* Set white text color */
+    font-family: 'Helvetica', sans-serif;
+    /* Use a specific font-family */
+    font-size: 16px;
+    /* Set the font size */
+    border: 1px solid #2980b9;
+    /* Border color */
     border-radius: 8px;
     margin-right: 15px;
 }
@@ -64,16 +78,19 @@ button[type="submit-button"] {
     border-radius: 5px;
     padding: 5px 10px;
     cursor: pointer;
-    transition: background-color 0.4s; /* Add a smooth transition effect */
+    transition: background-color 0.4s;
+    /* Add a smooth transition effect */
 }
 
 button[type="submit-button"]:hover {
-    background-color: #beef00; /* Change the background color on hover */
+    background-color: #beef00;
+    /* Change the background color on hover */
     color: black;
 }
 
-input[type="text"]:focus + button[type="submit-button"] {
-    background-color: #beef00; /* Change the background color when the input is focused */
+input[type="text"]:focus+button[type="submit-button"] {
+    background-color: #beef00;
+    /* Change the background color when the input is focused */
     color: black;
 }
 
@@ -180,22 +197,31 @@ footer {
 }
 
 .stock-info {
-    text-align: center; /* Center the text horizontally within the stock-info container */
+    text-align: center;
+    /* Center the text horizontally within the stock-info container */
 }
 
 .delete-stock-button {
     background-color: transparent;
-    color: #1565c0; /* Normal Blue text color */
+    color: #1565c0;
+    /* Normal Blue text color */
     border: none;
-    padding: 12px 12px; /* Adjusted padding for a larger button */
+    padding: 12px 12px;
+    /* Adjusted padding for a larger button */
     cursor: pointer;
-    border-radius: 5px; /* Optional: Adds rounded corners */
-    transition: color 0.3s ease; /* Smooth transition for hover effect */
-    font-weight: bold; /* Make the text bold */
-    font-size: 16px; /* Set the font size */
+    border-radius: 5px;
+    /* Optional: Adds rounded corners */
+    transition: color 0.3s ease;
+    /* Smooth transition for hover effect */
+    font-weight: bold;
+    /* Make the text bold */
+    font-size: 16px;
+    /* Set the font size */
 }
 
 .delete-stock-button:hover {
-color: #2196f3; /* Light Blue for hover effect */
-background-color: #e3f2fd; /* Light background color on hover */
+    color: #2196f3;
+    /* Light Blue for hover effect */
+    background-color: #e3f2fd;
+    /* Light background color on hover */
 }
